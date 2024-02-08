@@ -13,4 +13,3 @@ python3 --version
 pip3 list
 
 # Run the Robot Framework test suite specified in the requirements.txt file
-python3 -m robot.run $(cat requirements.txt)
