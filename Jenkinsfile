@@ -5,6 +5,7 @@ pipeline {
         QA_SERVER = 'https://qa.application.com/'
         CT_SERVER = 'http://ct.application.com/'
     }
+
     
     stages {
         stage('Initialize') {
@@ -15,10 +16,9 @@ pipeline {
         
         stage('Install dependencies') {
             steps {
-                sh '/home/drashti/Documents/Android_Automation/robot-files/Mobile_Automation/Mobile_app_Automation/Requirements.txt'
-                
+                sh '/home/drashti/Documents/Android_Automation/robot-files/Mobile_Automation/Mobile_app_Automation/setup_and_run.sh'
+            }
         }
-
         
         stage('Run Robot Tests') {
             steps {
@@ -29,13 +29,14 @@ pipeline {
         }
     }
     
+
     
     post {
         always {
             script {
                 step([
                     $class              : 'RobotPublisher',
-                    outputPath          : '/var/lib/jenkins/workspace/Automation_pipeline/',
+                    outputPath          : '/home/drashti/Documents/Android_Automation/robot-files/Mobile_Automation/Mobile_app_Automation/',
                     outputFileName      : '**/output.xml',
                     reportFileName      : '**/report.html',
                     logFileName         : '**/log.html',
