@@ -19,8 +19,8 @@ pipeline {
                 sh '/home/drashti/Documents/Android_Automation/robot-files/Mobile_Automation/Mobile_app_Automation/setup_and_run.sh'
             }
         }
-    
-        
+
+
         stage('Run Robot Tests') {
             steps {
                 script {
@@ -30,7 +30,6 @@ pipeline {
         }
     }
     
-
     post {
         always {
             script {
